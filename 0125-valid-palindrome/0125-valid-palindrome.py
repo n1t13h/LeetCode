@@ -1,12 +1,7 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        s = ''.join(e for e in s if e.isalnum()).lower()
-        left, right = 0, len(s) - 1
-
-        while left < right:
-            if s[left] != s[right]:
-                return False
-            left += 1
-            right -= 1
-
-        return True
+        # Remove non-alphanumeric characters and convert to lowercase
+        s = ''.join(char.lower() for char in s if char.isalnum())
+        
+        # Check if the string is a palindrome
+        return s == s[::-1]
